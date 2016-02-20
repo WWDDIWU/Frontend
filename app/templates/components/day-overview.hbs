@@ -5,6 +5,7 @@
       width: 15%;
     }
 
+# headerpanel
     core-header-panel {
       float: left;
       width: 360px;
@@ -40,6 +41,44 @@
       height: 2000px;
       background: linear-gradient(#DEDEDE, lightgrey);
     }
+
+    # Animated Pages
+    :host {
+      display: block;
+      position: relative;
+    }
+    core-animated-pages {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    .tall-toolbar {
+      box-sizing: border-box;
+      height: 240px;
+    }
+    .tall-toolbar.colored {
+      fill: #fff;
+      color: #fff;
+    }
+    .tall-toolbar [flex] {
+      font-size: 1.5em;
+    }
+    core-icon-button {
+      margin: 16px;
+    }
+    .body {
+      background-color: #f1f1f1;
+    }
+    .square {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      left: 16px;
+      top: 175px;
+    }
+
 </style>
 
 {{#each model.timeline as |day|}}
@@ -48,7 +87,7 @@
         <div class="core-header"><h2>{{date-name day.date "dayname"}}</h2>{{date-name day.date "daystring"}}</div>
         <div class="content">
           {{#each day.events as |event|}}
-              {{event.title}}
+            {{#event-line event=event}} {{/event-line }}
           {{/each}}
         </div>
       </core-header-panel>
@@ -60,7 +99,3 @@
       </core-header-panel>
   </paper-shadow>
 {{/each}}
-
-
-
-{{yield}}
