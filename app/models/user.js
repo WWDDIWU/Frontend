@@ -12,8 +12,8 @@ export default DS.Model.extend({
   }),
   email: DS.attr('string'),
   devices: DS.hasMany('device'),
-  home: DS.belongsTo('location', {inverse: 'homes'}),
-  work: DS.belongsTo('location', {inverse: 'works'}),
-  other: DS.hasMany('location', {inverse: 'others'}),
+  home: DS.belongsTo('location', {inverse: null}),
+  work: DS.belongsTo('location', {inverse: null}),
+  other: DS.hasMany('location', {inverse: null}),
   timeline: DS.hasMany('day')
 });

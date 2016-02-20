@@ -6,9 +6,12 @@ export default DS.Model.extend({
   day: DS.belongsTo('day'),
   object: Ember.computed('type', 'value', 'day', function() {
       if (this.get('type') === 0) {
-
+          return this.get('day').get('events').objectAt(this.get('value'));
+      } else if (this.get('type') === 1) {
+          return this.get('day').get('ttgfatbs').objectAt(this.get('value'));
+      } else {
+          return undefined;
       }
-      return this.get('day').get('events');
   })
 });
 
