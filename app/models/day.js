@@ -6,5 +6,5 @@ export default DS.Model.extend({
   checksum: DS.attr('string'),
   events: DS.hasMany('event'),
   timeToGetFromAtoB: DS.hasMany('ttgfatb'),
-  sequence: DS.hasMany('sequenceelement')
+  sequence: DS.hasMany('sequence-element')
 });
