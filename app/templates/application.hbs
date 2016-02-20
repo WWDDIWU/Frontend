@@ -49,8 +49,9 @@
   <core-toolbar class="paper-shadow-bottom-z-2">
     <core-icon-button icon="menu" on-tap="{{menuAction}}"></core-icon-button>
     <div flex>CarpeDiem</div>
+
     <core-icon-button icon="more-vert" on-tap="{{moreAction}}"></core-icon-button>
-    <paper-progress value="{{currentDayTime}}" class="daytime"></paper-progress>
+    <paper-progress value="{{day-progress true}}" class="daytime"></paper-progress>
   </core-toolbar>
 </paper-shadow>
 

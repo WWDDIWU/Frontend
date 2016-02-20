@@ -25,12 +25,17 @@ export default Ember.Route.extend({
             suggestion: 0,
             day: this.store.peekRecord('day', 20160220)
         });
-        var device = this.store.createRecord('device', {
-            lastUpdate: 'd',
+        /*var event = this.store.createRecord('event', {
             type: 0,
-            user: this.store.peekRecord('user', 'kingmarv')
+            priority: 0,
+            title: 'Council of Ricks Meeting',
+            description: 'The Meeting.. ugh whatever, Morty',
+            start: '2016-02-20T14:00:00',
+            end: '2016-02-20T16:00:00',
+            duration: 7200000, //in ms
+            suggestion: false
         });
-        device.save();
+        event.save();*/
         return null;
     }
 });
