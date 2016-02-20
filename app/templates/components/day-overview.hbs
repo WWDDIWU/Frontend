@@ -6,18 +6,19 @@
     }
 
 # headerpanel
-    core-header-panel {
+    .core-header-panel {
       float: left;
       width: 360px;
       height: 400px;
     }
 
-    core-header-panel[mode=cover]::shadow #mainContainer {
+    .core-header-panel[mode=cover]::shadow #mainContainer {
       left: 70px;
     }
 
     .core-header-panel {
       height: 800px;
+      min-width: 250px;
     }
 
     .core-header {
@@ -92,10 +93,6 @@
         </div>
       </core-header-panel>
   </paper-shadow>
-  <paper-shadow class="card day-paper paper-shadow-bottom-z-4" z="3">
-      <core-header-panel mode="waterfall-tall" class="paper-shadow-bottom-z-1" tallClass="medium-tall">
-        <div class="core-header">{{day.date}}</div>
-        <div class="content"></div>
-      </core-header-panel>
-  </paper-shadow>
+
 {{/each}}
+{{polymer-outlet 'main' animations="cross-fade" slide=true}}
