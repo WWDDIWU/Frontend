@@ -9,7 +9,8 @@
     "github-card": "pazguille/github-card",
     "paper-elements": "Polymer/paper-elements#0.5.6",
     "core-elements": "Polymer/core-elements#0.5.6",
-    "js-cookie": "^2.1.0"
+    "js-cookie": "^2.1.0",
+    "polymer-date-picker": "^0.0.11"
   },
   "resolutions": {
     "webcomponentsjs": "0.7.21"

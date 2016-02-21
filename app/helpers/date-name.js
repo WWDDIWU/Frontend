@@ -26,10 +26,7 @@ var months = [
 ];
 
 export function dateName(params/*, hash*/) {
-  console.log(params[0]);
   var date = new Date(params[0]);
-  console.log(date);
-  console.log(date.getDay());
   switch (params[1]) {
     case "dayname": return days[date.getDay()][0];
     case "dayshort": return days[date.getDay()][1];
