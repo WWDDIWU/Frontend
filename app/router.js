@@ -9,7 +9,7 @@ Router.map(function() {
   this.route('user', {path: '/:user_id'}, function() {});
   this.route('day', {path: '/:user_id/day/:date'});
   this.route('login');
-  this.route('event', function() {
+  this.route('event', {path: '/:user_id/event'}, function() {
     this.route('new');
   });
 });
