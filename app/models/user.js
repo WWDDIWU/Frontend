@@ -7,6 +7,7 @@ export default DS.Model.extend({
   }),
   firstname: DS.attr('string'),
   lastname: DS.attr('string'),
+  metric: DS.attr('boolean'),
   fullname: Ember.computed('firstname', 'lastname', function() {
     return `${this.get('firstname')} ${this.get('lastname')}`;
   }),

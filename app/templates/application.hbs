@@ -50,8 +50,7 @@
   <!--<core-icon-button icon="menu" on-tap="{{menuAction}}"></core-icon-button>-->
     <div flex>CarpeDiem</div>
 
-    {{#link-to "event.new"}}<core-icon-button icon="add"></core-icon-button>{{/link-to}}
-    <core-icon-button icon="input" on-tap="{{logout}}"></core-icon-button>
+    {{title-bar-nav}}
     <paper-progress value="{{day-progress true}}" class="daytime"></paper-progress>
   </core-toolbar>
 </paper-shadow>

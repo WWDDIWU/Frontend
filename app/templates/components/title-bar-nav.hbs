@@ -1,0 +1,4 @@
+{{#if userIsLoggedIn}}
+    {{#link-to "event.new"}}<core-icon-button icon="add"></core-icon-button>{{/link-to}}
+    <core-icon-button {{action 'logout'}} icon="input" on-tap="{{logout}}"></core-icon-button>
+{{/if}}
