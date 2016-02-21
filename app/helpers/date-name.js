@@ -37,7 +37,8 @@ export function dateName(params/*, hash*/) {
     case "year": return date.getFullYear();
     case "monthname": return months[date.getMonth()][0];
     case "monthshort": return months[date.getMonth()][1];
-    case "daystring": return ((date.getMonth()+1)+"/"+(date.getDate()+1)+"/"+(date.getFullYear()));
+    case "daystring": return ((date.getMonth()+1)+"/"+(date.getDate())+"/"+(date.getFullYear()));
+    case "timestring": return (date.getHours()+":"+(date.getMinutes()<10?"0"+date.getMinutes():date.getMinutes()));
     default: return days[date.getDay()][0];
   }
 }

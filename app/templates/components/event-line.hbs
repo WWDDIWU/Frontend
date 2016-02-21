@@ -1,0 +1,46 @@
+  <style shim-shadowdom>
+    .icons {
+      float: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+
+{{#click-events "showmore" event }}
+ {{#if true}}
+    <paper-toast id="toast-{{event.id}}" style="position: absolute;" text="Location: {{event.location.name}}"></paper-toast>
+ {{/if}}
+  <paper-item>
+    <div style="float:left; margin-right: 10px">
+      <i style="font-size: small;">{{date-name event.start "timestring"}}</i>
+      {{#if event.end }}<i style="font-size: small;"><br />{{date-name event.end "timestring"}}</i>
+      {{else}}
+        {{#if event.end }}<i style="font-size: small;">  {{event.duration}}</i>{{/if}}
+      {{/if}}
+    </div>
+    <div style="float: right">
+      <b style="margin-right: 25px">{{event.title}}</b><br />
+    </div>
+    <div style="position: absolute; vertical-align: middle; float: right; right: 5px; top:25px; margin: auto;">
+        {{#if (ifIs event.type 1)}}
+          <core-tooltip label='Task' position="left">
+            <core-image  src="/assets/icons/ic_assignment_turned_in_black_24px.svg" class="icons"></core-image>
+          </core-tooltip>
+        {{/if}}
+        {{#if (ifIs event.type 2)}}
+          <core-tooltip label='Open End' position="left">
+            <core-image  src="/assets/icons/ic_timelapse_black_24px.svg" class="icons"></core-image>
+          </core-tooltip>
+        {{/if}}
+        {{#if (ifIs event.type 3)}}
+          <core-tooltip label='On Standby' position="left">
+            <core-image  src="/assets/icons/ic_hearing_black_24px.svg" class="icons"></core-image>
+          </core-tooltip>
+        {{/if}}
+    </div>
+  </paper-item>
+{{/click-events}}
+  <core-collapse id="collapse-event-{{event.id}}">
+    <paper-item>
+      {{event.description}}
+    </paper-item>
+  </core-collapse>

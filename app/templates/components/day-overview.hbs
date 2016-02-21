@@ -19,6 +19,7 @@
     .core-header-panel {
       height: 800px;
       min-width: 250px;
+      width: 15vw;
     }
 
     .core-header {
@@ -79,13 +80,20 @@
       left: 16px;
       top: 175px;
     }
-
+    paper-toast {
+          margin: 5px;
+        }
 </style>
 
 {{#each model.timeline as |day|}}
   <paper-shadow class="card day-paper paper-shadow-bottom-z-4" z="3">
       <core-header-panel mode="waterfall-tall" class="paper-shadow-bottom-z-1 core-header-panel" tallClass="medium-tall">
-        <div class="core-header"><h2>{{date-name day.date "dayname"}}</h2>{{date-name day.date "daystring"}}</div>
+        <div class="core-header">
+          <h2>{{date-name day.date "dayname"}}</h2>{{date-name day.date "daystring"}}
+           {{#each day.events as |event|}}
+              {{#if true}}<paper-toast id="toast-{{event.id}}" class="locationToast" role="alert" text="Location: {{event.location.name}}">asdfdas</paper-toast>{{/if}}
+           {{/each}}
+        </div>
         <div class="content">
           {{#each day.events as |event|}}
             {{#event-line event=event}} {{/event-line }}
