@@ -19,11 +19,12 @@
       height: 40px;
       width: 50%;
   }
-  .bigcard paper-item {
-      margin: auto;
+  .paper-location {
       height: 40px;
-      width: 50%;
-      text-align: center;
+    }
+  .bigcard paper-item {
+    margin: auto;
+    text-align: center;
   }
   .bigcard core-field input {
       width: 100%;
@@ -111,23 +112,23 @@
     <core-field style="width: 70%; float: right;">{{input id="eveTitle" value=eveTitle placeholder="Title" style="height: 120px"}}</core-field>
     <core-field style="width: 70%; float: right;">{{input id="eveDescr" value=eveDescr placeholder="Description" style="height: 120px"}}</core-field>
     <core-field style="width: 70%; float: right;">
-       <paper-radio-group class="blue" selected="Event" layout="row">
+       <paper-radio-group id="eveType" class="blue" selected="Event" layout="row">
            <paper-radio-button name="Event" label="Event"></paper-radio-button><!--<core-image  src="/assets/icons/ic_assignment_turned_in_black_24px.svg" class="icons"></core-image>-->
-           <paper-radio-button name="Task" label="Task"></paper-radio-button><!--<core-image  src="/assets/icons/ic_assignment_turned_in_black_24px.svg" class="icons"></core-image>-->
-           <paper-radio-button name="OpenEnd" label="Open End"></paper-radio-button><!--<core-image  src="/assets/icons/ic_timelapse_black_24px.svg" class="icons"></core-image>-->
-           <paper-radio-button name="OnStandby" label="On standby"></paper-radio-button><!--<core-image  src="/assets/icons/ic_hearing_black_24px.svg" class="icons"></core-image>-->
+           <paper-radio-button name="1" label="Task"></paper-radio-button><!--<core-image  src="/assets/icons/ic_assignment_turned_in_black_24px.svg" class="icons"></core-image>-->
+           <!--<paper-radio-button name="2" label="Open End"></paper-radio-button><!--<core-image  src="/assets/icons/ic_timelapse_black_24px.svg" class="icons"></core-image>-->
+           <paper-radio-button name="3" label="On standby"></paper-radio-button><!--<core-image  src="/assets/icons/ic_hearing_black_24px.svg" class="icons"></core-image>-->
        </paper-radio-group>
     </core-field>
     <core-field style="width: 70%; float: right;">
       {{input id="eveStart" value=eveStart placeholder="Start"}}
-      {{#if endTme}}{{input id="eveEnd" value=eveEnd placeholder="End"}}
-      {{else}}      {{input id="eveDur" value=eveDur placeholder="Duration"}}
-      {{/if}}
+      {{input id="eveEnd" value=eveEnd placeholder="End"}}
+      <!--     {{input id="eveDur" value=eveDur placeholder="Duration"}}-->
+
     </core-field>
   </div>
   <div style="width: 49%; float: right; display: inline; margin: 5px; ">
-    <core-field style="width: 70%; float: left; height: 176px; overflow-y: scroll">
-        {{event-search eventSearch model.events name selLati selLongi}}
+    <core-field style="width: 70%; float: left; height: 176px; overflow-y: scroll;">
+        <div style="position:relative; width: 100%"><div style="position: absolute; top:0; width: 100%; margin-top: -80px">{{event-search eventSearch model.events name selLati selLongi}}</div></div>
     </core-field>
   </div>
   {{outlet}}

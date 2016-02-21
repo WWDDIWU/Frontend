@@ -9,6 +9,7 @@ var EventSearchComponent = Ember.Component.extend({
             const toMatch = args[arg];
             if(toMatch) {
               if (this.exec(typeof toMatch === "string" ? toMatch : toMatch.toString())) {
+                console.log(toMatch);
                 return true;
               }
             }
@@ -27,7 +28,6 @@ var EventSearchComponent = Ember.Component.extend({
         typeof(sL.title)==="undefined" ?   sL.title="" : 1;
         //try {
           this.get("events").forEach(function (e) {
-            console.log(sL.title);
               if (reg.findMatch(
                     e.get("title"),
                     e.get("id"),
@@ -38,15 +38,16 @@ var EventSearchComponent = Ember.Component.extend({
                 sorted.push(e);
               }
 
-              else  if ((( (zNK(sL.longi) === zNK(e.get("location").get("longitude")) ) &&
+              /*else  if ((( (zNK(sL.longi) === zNK(e.get("location").get("longitude")) ) &&
                (zNK(sL.lati) === zNK(e.get("location").get("latitude")))
              ) ||  sL.title.match(regLoc) ) && sorted.indexOf(e) === -1)
               {
                 sorted.push(e);
-              }
+              }*/
             });
 
-            sorted.forEach(function (e) {console.log("Matching events: "+ e.get("title"));});
+            sorted.forEach(function (e) {//console.log("Matching events: "+ e.get("title"));
+          });
             this.set("sortedEvents", sorted);
         //} catch(e){console.log("Error while sorting events: "+e);}
       }, actions: {

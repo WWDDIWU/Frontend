@@ -7,7 +7,7 @@
 }
 
 .google {
-    background-position: right bottom;
+    background-position: center bottom;
     background-repeat: no-repeat;
     background-image: url("/assets/powered_by_google_on_white.png");
 }

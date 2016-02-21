@@ -1,7 +1,8 @@
+
 {{#each sortedEvents as |event|}}
   {{#click-events "showmore" event }}
 
-    <paper-item style="float:none">
+    <paper-item style="postion: absolute">
       <div style="float:left; margin-right: 10px">
         <i style="font-size: small;">{{date-name event.start "timestring"}}</i>
         {{#if event.end }}<i style="font-size: small;"><br />{{date-name event.end "timestring"}}</i>
@@ -35,7 +36,7 @@
     </paper-item>
   {{/click-events}}
     <core-collapse id="collapse-event-{{event.id}}">
-      {{#click-events "open" event }}
+      {{#click-events "openNew" event}}
         <paper-item>
           {{event.description}}
         </paper-item>

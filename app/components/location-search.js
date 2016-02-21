@@ -8,7 +8,7 @@ var LocationSearchComponent = Ember.Component.extend({
         const sorted = [];
         //console.log(this.get("locations"));
         try {this.get("locations").forEach(function (e) {
-              if (e.get("name").match(reg) || e.get("id").match(reg)) {
+              if ((e.get("name").match(reg) || e.get("id").match(reg)) && sorted.indexOf(e) === -1) {
                 sorted.push(e);
               }
             });
