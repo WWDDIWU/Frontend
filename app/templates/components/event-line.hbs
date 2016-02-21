@@ -7,9 +7,9 @@
 
 {{#click-events "showmore" event }}
  {{#if true}}
-    <paper-toast id="toast-{{event.id}}" style="position: absolute;" text="Location: {{event.location.name}}"></paper-toast>
+    <paper-toast id="toast-{{event.id}}" style="float: none; position: relative; top:0; height: 50px;" text="Location: {{event.location.name}}"></paper-toast>
  {{/if}}
-  <paper-item>
+  <paper-item style="float:none">
     <div style="float:left; margin-right: 10px">
       <i style="font-size: small;">{{date-name event.start "timestring"}}</i>
       {{#if event.end }}<i style="font-size: small;"><br />{{date-name event.end "timestring"}}</i>
@@ -40,7 +40,9 @@
   </paper-item>
 {{/click-events}}
   <core-collapse id="collapse-event-{{event.id}}">
-    <paper-item>
-      {{event.description}}
-    </paper-item>
+    {{#click-events "open" event }}
+      <paper-item>
+        {{event.description}}
+      </paper-item>
+    {{/click-events}}
   </core-collapse>

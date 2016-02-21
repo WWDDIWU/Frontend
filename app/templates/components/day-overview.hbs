@@ -90,9 +90,6 @@
       <core-header-panel mode="waterfall-tall" class="paper-shadow-bottom-z-1 core-header-panel" tallClass="medium-tall">
         <div class="core-header">
           <h2>{{date-name day.date "dayname"}}</h2>{{date-name day.date "daystring"}}
-           {{#each day.events as |event|}}
-              {{#if true}}<paper-toast id="toast-{{event.id}}" class="locationToast" role="alert" text="Location: {{event.location.name}}">asdfdas</paper-toast>{{/if}}
-           {{/each}}
         </div>
         <div class="content">
           {{#each day.events as |event|}}
