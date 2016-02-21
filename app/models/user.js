@@ -5,6 +5,7 @@ export default DS.Model.extend({
   username: Ember.computed('id', function() {
     return `${this.get('id')}`;
   }),
+  token: DS.attr('string'),
   firstname: DS.attr('string'),
   lastname: DS.attr('string'),
   fullname: Ember.computed('firstname', 'lastname', function() {
