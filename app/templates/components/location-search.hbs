@@ -1,0 +1,9 @@
+<div id="sortedLocationsDIV">
+  {{#if showSorted}}
+    {{#each sortedLocations as |location|}}
+      <paper-item {{action "fillForm" location}}>
+        <p>{{location.name}}</p>
+      </paper-item>
+    {{/each}}
+  {{/if}}
+</div>
