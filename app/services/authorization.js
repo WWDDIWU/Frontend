@@ -31,7 +31,7 @@ export default Ember.Service.extend({
                 Cookies.set('token', data.token);
             },
             error: function(data) {
-                Cookies.delete('token');
+                Cookies.remove('token');
             }
         });
     }
