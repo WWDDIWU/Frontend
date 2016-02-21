@@ -29,7 +29,15 @@ var polymer = pickFiles('bower_components/', {
   destDir: '/assets'
 });
 
+var jsCookies = pickFiles('bower_components/js-cookie/src/', {
+    srcDir: '',
+    files: [
+        'js.cookie.js'
+    ],
+    destDir: '/assets'
+});
+
 var ownAssets = new Funnel('public/assets', {
   destDir: '/'
 });
-module.exports = mergeTrees([polymerVulcanize, polymer, app.toTree(ownAssets)]);
+module.exports = mergeTrees([polymerVulcanize, polymer, jsCookies, app.toTree(ownAssets)]);

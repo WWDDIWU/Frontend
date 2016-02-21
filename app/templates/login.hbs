@@ -5,12 +5,12 @@
 
   </core-label>
   <paper-input-decorator label="Name" style="text-align: center">
-      {{input value='kingmarv'}}
+      {{input value=username}}
   </paper-input-decorator>
 
   <paper-input-decorator label="Password">
-    {{input type='password' value='test'}}
+    {{input type='password' value=password}}
   </paper-input-decorator>
-  <paper-button for>Login</paper-button>
+  <paper-button for {{action 'login' username password}}>Login</paper-button>
   {{outlet}}
 </paper-shadow>

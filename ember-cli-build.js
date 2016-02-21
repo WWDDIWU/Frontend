@@ -3,11 +3,13 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
-  var app = new EmberApp({
+    var app = new EmberApp({
         'ember-bootstrap': {
             'importBootstrapTheme': true
         }
     });
+    
+    app.import('bower_components/js-cookie/src/js.cookie.js');
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

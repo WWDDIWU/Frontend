@@ -2,22 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     beforeModel() {
-        let storedUsers = this.store.peekAll('user');
-        let token;
-        let tokenSet = false;
-        for (let i = 0; i < storedUsers.content.length; i++) {
-            token = storedUsers.objectAt(i).get('token');
-            if (token !== null && token !== undefined) {
-                tokenSet = true;
-                break;
-            }
-        }
-        if (!tokenSet) {
+        if (!this.get('authorization').getToken()) {
             this.transitionTo('login');
         }
     },
     model() {
-        /*this.store.createRecord('user', {
+        this.store.createRecord('user', {
             id: 'kingmarv',
             email: 'marvin@mail.ru'
         });
@@ -33,19 +23,20 @@ export default Ember.Route.extend({
             date: new Date('2016-02-20'),
             checksum: '2'
         });
-        this.store.createRecord('event', {
-            id: 2,
+        let event = this.store.createRecord('event', {
+            //id: 2,
             type: 1,
             priority: 0,
             title: 'An event',
-            start: '2016-02-20T15:00',
-            end: '2016-02-20T16:00',
-            duration: 3600000,
+            start: new Date('2016-02-20T15:00'),
+            end: new Date('2016-02-20T16:00'),
+            //duration: 3600000,
             description: 'A description',
             location: null,
             suggestion: 0,
-            day: this.store.peekRecord('day', 20160220)
+            //day: this.store.peekRecord('day', 20160220)
         });
+        event.save();
         this.store.createRecord('event', {
             id: 1,
             type: 2,
@@ -89,7 +80,7 @@ export default Ember.Route.extend({
             end: new Date('2016-02-20T16:00:00'),
             suggestion: false,
             day: this.store.peekRecord('day', 20160221)
-        });*/
+        });
         return null;
     }
 });
