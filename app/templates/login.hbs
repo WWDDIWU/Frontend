@@ -1,5 +1,16 @@
-{{input value='kingmarv'}}
+<paper-shadow class="card day-paper paper-shadow-bottom-z-4" style="position: absolute; top: 50%;
+  left: 50%; margin: -10% 0 0 -10%; padding: 20px; width: 20%; height: 25%; min-height: 300px; text-align: center" z="3">
+  <core-label>
+    <h1>Login</h1>
 
-{{input type='password' value='test'}}
+  </core-label>
+  <paper-input-decorator label="Name" style="text-align: center">
+      {{input value='kingmarv'}}
+  </paper-input-decorator>
 
-{{outlet}}
+  <paper-input-decorator label="Password">
+    {{input type='password' value='test'}}
+  </paper-input-decorator>
+  <paper-button for>Login</paper-button>
+  {{outlet}}
+</paper-shadow>
