@@ -8,6 +8,7 @@ export default Ember.Route.extend({
     },
     model() {
         let that = this;
+
         this.store.createRecord('user', {
             id: 'kingmarv',
             email: 'marvin@mail.ru'
@@ -40,6 +41,12 @@ export default Ember.Route.extend({
             owner: this.store.peekRecord('user', 'kingmarv'),
             date: new Date('2016-02-20'),
             checksum: '2'
+        });
+        this.store.createRecord('location', {
+          id:1,
+          name:"Toms Home",
+          latitude:48.778071,
+          longitude: 9.174445
         });
         this.store.createRecord('event', {
             id: 1,

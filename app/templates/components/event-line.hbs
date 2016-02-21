@@ -3,12 +3,14 @@
       float: inline-block;
       vertical-align: middle;
     }
+
+    .core-tooltip {
+      color: #3C8D2F;
+    }
   </style>
 
 {{#click-events "showmore" event }}
- {{#if true}}
-    <paper-toast id="toast-{{event.id}}" style="float: none; position: relative; top:0; height: 50px;" text="Location: {{event.location.name}}"></paper-toast>
- {{/if}}
+
   <paper-item style="float:none">
     <div style="float:left; margin-right: 10px">
       <i style="font-size: small;">{{date-name event.start "timestring"}}</i>
@@ -17,9 +19,12 @@
         {{#if event.end }}<i style="font-size: small;">  {{event.duration}}</i>{{/if}}
       {{/if}}
     </div>
-    <div style="float: right">
-      <b style="margin-right: 25px">{{event.title}}</b><br />
-    </div>
+
+    <core-tooltip label='{{event.location.name}}' position="top" style="z-index: 50; font-color:#3C8D2F; ">
+      <div style="float: right">
+        <b style="margin-right: 25px">{{event.title}}</b><br />
+      </div>
+    </core-tooltip>
     <div style="position: absolute; vertical-align: middle; float: right; right: 5px; top:25px; margin: auto;">
         {{#if (ifIs event.type 1)}}
           <core-tooltip label='Task' position="left">

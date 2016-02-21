@@ -17,7 +17,10 @@
     }
 
     .core-header-panel {
-      height: 800px;
+      height: 600px;
+      height: calc(100vh - 124px);
+      height: -moz-calc(100vh - 124px);
+      height: -webkit-calc(100vh - 124px);
       min-width: 250px;
       width: 15vw;
     }
@@ -83,13 +86,51 @@
     paper-toast {
           margin: 5px;
         }
-</style>
+    .paperLocation {
+      min-width: 260px;
+      width: 16vw;
+      top:-5px;
+      left:-1vw;;
+      line-height: 1em;
+      padding: auto;
+      float: none;
+      height: 70px;
+      position: absolute;
+    }
+    .paperLocationUnten {
+      min-width: 260px;
+      width: 16vw;
+      bottom:-5px;;
+      left:-1vw;;
+      line-height: 3em;
+      padding: 5px 25px 5px 30px;
+      float: none;
+      height: 70px;
+      position: absolute;
+      overflow: hidden;
+    }
 
+</style>
+{{map-dialog "mapDialogDiv" currentLocation}}
 {{#each model.timeline as |day|}}
   <paper-shadow class="card day-paper paper-shadow-bottom-z-4" z="3">
       <core-header-panel mode="waterfall-tall" class="paper-shadow-bottom-z-1 core-header-panel" tallClass="medium-tall">
         <div class="core-header">
           <h2>{{date-name day.date "dayname"}}</h2>{{date-name day.date "daystring"}}
+
+          <div  style="overflow:hidden; position: absolute; padding-top: 0px; bottom: 0; left: 0; height: 60px; min-width: 250px;
+          width: 15vw;">
+          <!-- Location Toasts-->
+             {{#each day.events as |event|}}{{#if event.location}}
+             <paper-toast class="paperLocationUnten" role="alert" id="toast-{{event.id}}" style="" text="Location">
+                <div {{action 'openEvent' event.location}} style="color: #3C8D2F; padding-top: 20px; overflow: hidden; width:100%; position: absolute; left: 30px;" >
+                  <b style="font-size: 75%; line-height: 1em;">
+                    {{event.location.name}}
+                  </b>
+                </div>
+             </paper-toast>
+             {{/if}}{{/each}}
+          </div>
         </div>
         <div class="content">
           {{#each day.events as |event|}}
