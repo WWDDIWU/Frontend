@@ -1,6 +1,21 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+    beforeModel() {
+        let storedUsers = this.store.peekAll('user');
+        let token;
+        let tokenSet = false;
+        for (let i = 0; i < storedUsers.content.length; i++) {
+            token = storedUsers.objectAt(i).get('token');
+            if (token !== null && token !== undefined) {
+                tokenSet = true;
+                break;
+            }
+        }
+        if (!tokenSet) {
+            this.transitionTo('login');
+        }
+    },
     model() {
         /*this.store.createRecord('user', {
             id: 'kingmarv',
@@ -75,20 +90,6 @@ export default Ember.Route.extend({
             suggestion: false,
             day: this.store.peekRecord('day', 20160221)
         });*/
-        
-        let storedUsers = this.store.peekAll('user');
-        let token;
-        let tokenSet = false;
-        for (let i = 0; i < storedUsers.content.length; i++) {
-            token = storedUsers.objectAt(i).get('token');
-            if (token !== null && token !== undefined) {
-                tokenSet = true;
-                break;
-            }
-        }
-        if (!tokenSet) {
-            this.transitionTo('login');
-        }
         return null;
     }
 });
