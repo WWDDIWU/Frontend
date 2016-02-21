@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     model() {
-        this.store.createRecord('user', {
+        /*this.store.createRecord('user', {
             id: 'kingmarv',
             email: 'marvin@mail.ru'
         });
@@ -74,7 +74,21 @@ export default Ember.Route.extend({
             end: new Date('2016-02-20T16:00:00'),
             suggestion: false,
             day: this.store.peekRecord('day', 20160221)
-        });
+        });*/
+        
+        let storedUsers = this.store.peekAll('user');
+        let token;
+        let tokenSet = false;
+        for (let i = 0; i < storedUsers.content.length; i++) {
+            token = storedUsers.objectAt(i).get('token');
+            if (token !== null && token !== undefined) {
+                tokenSet = true;
+                break;
+            }
+        }
+        if (!tokenSet) {
+            this.transitionTo('login');
+        }
         return null;
     }
 });

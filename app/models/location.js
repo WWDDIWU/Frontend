@@ -5,5 +5,5 @@ export default DS.Model.extend({
   latitude: DS.attr('number'),
   longitude: DS.attr('number'),
   events: DS.hasMany('event'),
-  user: DS.belongsTo('user', {inverse: null});
+  user: DS.belongsTo('user', {inverse: null})
 });
