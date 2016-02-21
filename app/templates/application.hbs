@@ -7,12 +7,32 @@
     core-toolbar {
       background-color: #BFBFBF;
       position: relative;
+      margin: 0 0 10px 0;
     }
     core-toolbar paper-progress::shadow #activeProgress {
       background-color: #F2F1F1;
     }
     core-toolbar paper-progress::shadow #progressContainer {
-      background-color: #DEDEDE;
+      background-color: #BFBFBF;
+    }
+
+    #bg {
+      z-index: 0;
+      position: fixed;
+      top: -50%;
+      left:-50%;
+      width:200%;
+      height:200%;
+    }
+    #bg img {
+      z-index: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width:100%;
     }
 
     .daytime {
@@ -22,20 +42,19 @@
       width: 100%;
     }
   </style>
-
+  <div id="bg" >
+    <img src="/assets/bg-img/bg1.png" alt="">
+  </div>
 <paper-shadow>
-  <core-toolbar>
+  <core-toolbar class="paper-shadow-bottom-z-2">
     <core-icon-button icon="menu" on-tap="{{menuAction}}"></core-icon-button>
-    <div flex>Title</div>
+    <div flex>CarpeDiem</div>
+
     <core-icon-button icon="more-vert" on-tap="{{moreAction}}"></core-icon-button>
     <paper-progress value="{{day-progress true}}" class="daytime"></paper-progress>
   </core-toolbar>
-
 </paper-shadow>
 
-<h2 id="title">Welcome to Ember</h2>
-
-
-<paper-button>flat button</paper-button>
-<paper-button raised>raised button</paper-button>
-<paper-button noink>No ripple effect</paper-button>
+<div style="height: 100%;">
+{{outlet}}
+</div>

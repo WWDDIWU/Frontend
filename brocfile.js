@@ -1,6 +1,7 @@
 var vulcanize   = require('broccoli-vulcanize');
 var pickFiles   = require('broccoli-static-compiler');
 var mergeTrees  = require('broccoli-merge-trees');
+var Funnel  = require('broccoli-funnel');
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp();
@@ -27,4 +28,8 @@ var polymer = pickFiles('bower_components/', {
   ],
   destDir: '/assets'
 });
-module.exports = mergeTrees([polymerVulcanize, polymer, app.toTree()]);
+
+var ownAssets = new Funnel('public/assets', {
+  destDir: '/'
+});
+module.exports = mergeTrees([polymerVulcanize, polymer, app.toTree(ownAssets)]);

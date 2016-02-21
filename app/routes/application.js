@@ -20,7 +20,7 @@ export default Ember.Route.extend({
         });
         this.store.createRecord('event', {
             id: 2,
-            type: 0,
+            type: 1,
             priority: 0,
             title: 'An event',
             start: '2016-02-20T15:00',
@@ -33,7 +33,7 @@ export default Ember.Route.extend({
         });
         this.store.createRecord('event', {
             id: 1,
-            type: 0,
+            type: 2,
             priority: 0,
             title: 'Council of Ricks Meeting',
             description: 'The Meeting.. ugh whatever, Morty',
@@ -44,7 +44,7 @@ export default Ember.Route.extend({
         });
         this.store.createRecord('event', {
             id: 3,
-            type: 0,
+            type: 3,
             priority: 0,
             title: 'Council of Ricks Meeting',
             description: 'The Meeting.. ugh whatever, Morty',
@@ -55,7 +55,7 @@ export default Ember.Route.extend({
         });
         this.store.createRecord('event', {
             id: 4,
-            type: 0,
+            type: 2,
             priority: 0,
             title: 'Council of Ricks Meeting',
             description: 'The Meeting.. ugh whatever, Morty',
@@ -66,7 +66,7 @@ export default Ember.Route.extend({
         });
         this.store.createRecord('event', {
             id: 5,
-            type: 0,
+            type: 1,
             priority: 0,
             title: 'Council of Ricks Meeting',
             description: 'The Meeting.. ugh whatever, Morty',
