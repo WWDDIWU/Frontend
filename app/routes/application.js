@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     model() {
-        /*this.store.createRecord('user', {
+        this.store.createRecord('user', {
             id: 'kingmarv',
             email: 'marvin@mail.ru'
         });
@@ -18,6 +18,12 @@ export default Ember.Route.extend({
             date: new Date('2016-02-20'),
             checksum: '2'
         });
+        this.store.createRecord('location', {
+          id:1,
+          name:"Toms Home",
+          latitude:48.778071,
+          longitude: 9.174445
+        });
         this.store.createRecord('event', {
             id: 2,
             type: 1,
@@ -27,7 +33,7 @@ export default Ember.Route.extend({
             end: '2016-02-20T16:00',
             duration: 3600000,
             description: 'A description',
-            location: null,
+            location: this.store.peekRecord('location', 1),
             suggestion: 0,
             day: this.store.peekRecord('day', 20160220)
         });
@@ -74,8 +80,8 @@ export default Ember.Route.extend({
             end: new Date('2016-02-20T16:00:00'),
             suggestion: false,
             day: this.store.peekRecord('day', 20160221)
-        });*/
-        
+        });/*
+
         let storedUsers = this.store.peekAll('user');
         let token;
         let tokenSet = false;
@@ -89,6 +95,6 @@ export default Ember.Route.extend({
         if (!tokenSet) {
             this.transitionTo('login');
         }
-        return null;
+        return null;*/
     }
 });

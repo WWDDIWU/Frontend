@@ -1,7 +1,7 @@
 export default function(){
   this.transition(
-    this.fromRoute('index'),
-    this.toRoute('posts'),
+    this.fromRoute('login'),
+    this.toRoute('user'),
     this.use('toLeft'),
     this.reverse('toRight')
   );
