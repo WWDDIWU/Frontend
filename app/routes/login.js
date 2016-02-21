@@ -16,7 +16,7 @@ export default Ember.Route.extend({
             method: 'POST',
             data: {
                 username: 'kingmarv',
-                password: 'testt'
+                password: 'test'
             },
             success: function(data) {
                 storeToken(data.token)
