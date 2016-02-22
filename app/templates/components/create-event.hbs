@@ -14,7 +14,7 @@
      </paper-radio-group>
   </core-field>
   <core-field style="width: 70%; float: right;">
-    {{input id="eveStart" value=eveStart placeholder="Start"}}
+    {{date-picker date=eveStart placeholder="Start" yearRange="0,6" utc=true valueFormat='MM/DD/YYYY'}}
     {{#if (ifIs selectedType 1)}} {{input id="eveDur" value=eveDur placeholder="Duration"}}
     {{else}} {{input id="eveEnd" value=eveEnd placeholder="End"}}
     {{/if}}
