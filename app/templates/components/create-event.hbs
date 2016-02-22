@@ -1,0 +1,29 @@
+<core-field>
+  {{input value=eventSearch placeholder="Search Events"}}
+</core-field>
+
+<div style="width: 49%; float: left; display: inline; margin: 5px;">
+  <core-field style="width: 70%; float: right;">{{input id="eveTitle" value=eveTitle placeholder="Title" style="height: 120px"}}</core-field>
+  <core-field style="width: 70%; float: right;">{{input id="eveDescr" value=eveDescr placeholder="Description" style="height: 120px"}}</core-field>
+  <core-field style="width: 70%; float: right;">
+     <paper-radio-group name="eveType" id="eveType" class="blue" selected="0" layout="row">
+         <paper-radio-button value="0" label="Event" {{action "radioButtonChanged" 0}}></paper-radio-button><!--<core-image  src="/assets/icons/ic_assignment_turned_in_black_24px.svg" class="icons"></core-image>-->
+         <paper-radio-button value="1" label="Task" {{action "radioButtonChanged" 1}}></paper-radio-button><!--<core-image  src="/assets/icons/ic_assignment_turned_in_black_24px.svg" class="icons"></core-image>-->
+         <!--<paper-radio-button  value="2" label="Open End" {{action "radioButtonChanged" 2}}></paper-radio-button><!--<core-image  src="/assets/icons/ic_timelapse_black_24px.svg" class="icons"></core-image>-->
+         <paper-radio-button value="3" label="On standby" {{action "radioButtonChanged" 3}}></paper-radio-button><!--<core-image  src="/assets/icons/ic_hearing_black_24px.svg" class="icons"></core-image>-->
+     </paper-radio-group>
+  </core-field>
+  <core-field style="width: 70%; float: right;">
+    {{input id="eveStart" value=eveStart placeholder="Start"}}
+    {{#if (ifIs selectedType 1)}} {{input id="eveDur" value=eveDur placeholder="Duration"}}
+    {{else}} {{input id="eveEnd" value=eveEnd placeholder="End"}}
+    {{/if}}
+  </core-field>
+</div>
+<div style="width: 49%; float: right; display: inline; margin: 5px; ">
+  <core-field style="width: 70%; float: left; height: 176px; overflow-y: scroll;">
+      <div style="position:relative; width: 100%"><div style="position: absolute; top:0; width: 100%; margin-top: -80px">
+        {{event-search eventSearch events selectedLocation fillFormEvent=(action 'fillFormEvent')}}
+      </div></div>
+  </core-field>
+</div>
