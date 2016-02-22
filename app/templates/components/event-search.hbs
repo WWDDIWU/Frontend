@@ -51,6 +51,11 @@
     <core-collapse id="collapse-event-{{event.id}}">
         <paper-item {{action "fillFormEvent" event}}>
           {{event.description}}
+          <div style="position:absolute; float:right; margin: 5px; margin-right: 9px; top:5px; right:0">
+            <core-tooltip label='Use Event' position="left">
+              <core-image  style="min-width: 24px;" src="/assets/icons/ic_launch_black_24px.svg" class="icons"></core-image>
+            </core-tooltip>
+          </div>
         </paper-item>
     </core-collapse>
 {{/each}}

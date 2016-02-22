@@ -19,16 +19,16 @@
     {{else}} {{date-picker date=eveEnd placeholder="End" yearRange="0,6" utc=true valueFormat='MM/DD/YYYY'}}
     {{/if}}
   </core-field>
-  <core-field style="width: 70%; float: right;">
-    {{time-picker}}
+  <core-field style="width: 70%; float: right; text-align: center">
+    From {{time-picker}} to
     {{#if (ifIs selectedType 1)}}
     {{else}} {{time-picker}}
     {{/if}}
   </core-field>
 </div>
 <div style="width: 49%; float: right; display: inline; margin: 5px; ">
-  <core-field style="width: 70%; float: left; height: 176px; overflow-y: scroll;">
-      <div style="position:relative; width: 100%"><div style="position: absolute; top:0; width: 100%; margin-top: -80px">
+  <core-field style="width: 70%; float: left; height: 220px; overflow-y: scroll;">
+      <div style="position:relative; width: 100%"><div style="position: absolute; top:0; width: 95%; margin-top: -80px">
         {{event-search eventSearch events selectedLocation fillFormEvent=(action 'fillFormEvent')}}
       </div></div>
   </core-field>
