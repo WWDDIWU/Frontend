@@ -25,9 +25,9 @@ var months = [
   ["December", "Dec"]
 ];
 
-export function dateName(params/*, hash*/) {
+export function dateNameOverview(params/*, hash*/) {
     console.log(params);
-  var date = new Date(params[0]);
+  var date = params[0];
   switch (params[1]) {
     case "dayname": return days[date.getDay()][0];
     case "dayshort": return days[date.getDay()][1];
@@ -41,4 +41,4 @@ export function dateName(params/*, hash*/) {
   }
 }
 
-export default Ember.Helper.helper(dateName);
+export default Ember.Helper.helper(dateNameOverview);
