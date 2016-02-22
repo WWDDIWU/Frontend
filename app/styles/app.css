@@ -11,3 +11,74 @@
     background-repeat: no-repeat;
     background-image: url("/assets/powered_by_google_on_white.png");
 }
+
+.bigcard {
+  position: absolute;
+  top: 80px;
+  width: 90vw;
+  height: 90%;
+  overflow-y: scroll;
+}
+.bigcard, .bigcard core-field, .bigcard core-field input {
+  text-align: center;
+}
+.bigcard .icons {
+  width: 25%;
+}
+.bigcard core-field {
+    border: 1px solid #ddd;
+    margin: auto;
+    margin-bottom: 5px;
+    height: 40px;
+    width: 50%;
+}
+.paper-location {
+    height: 40px;
+  }
+.bigcard paper-item {
+  margin: auto;
+  text-align: center;
+}
+.bigcard core-field input {
+    width: 100%;
+}
+.bigcard paper-item p {
+  width: 100%;
+}
+
+div.iconSearchGoogle {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  background-repeat: no-repeat;
+  background-image: url("/assets/icons/ic_search_google.png");
+  background-size: 32px 32px;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  margin-right: 14px;
+}
+.pac-container {margin-top: 15px;}
+
+paper-button.hover:hover {
+  background: #eee;
+}
+paper-radio-group{
+  text-align: center;
+  margin: auto;
+##  overflow: scroll;
+}
+paper-radio-group.blue paper-radio-button::shadow #ink[checked] {
+  color: #79859B;
+}
+
+paper-radio-group.blue paper-radio-button::shadow #onRadio {
+  background-color: #79859B;
+}
+paper-radio-group.blue paper-radio-button[checked]::shadow #offRadio {
+  border-color: #79859B;
+}
+
+paper-radio-button {
+  display: inline;
+}

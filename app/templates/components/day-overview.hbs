@@ -121,11 +121,11 @@
           <div  style="overflow:hidden; position: absolute; padding-top: 0px; bottom: 0; left: 0; height: 60px; min-width: 250px;
           width: 15vw;">
           <!-- Location Toasts-->
-             {{#each day.events as |event|}}{{#if event.location}}
+             {{#each day.events as |event|}}{{#if true}}
              <paper-toast class="paperLocationUnten" role="alert" id="toast-{{event.id}}" style="" text="Location">
                 <div {{action 'openEvent' event.location}} style="color: #3C8D2F; padding-top: 20px; overflow: hidden; width:100%; position: absolute; left: 30px;" >
                   <b style="font-size: 75%; line-height: 1em;">
-                    {{event.location.name}}
+                    {{event.location.name}}Test
                   </b>
                 </div>
              </paper-toast>

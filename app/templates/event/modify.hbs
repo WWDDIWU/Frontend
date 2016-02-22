@@ -1,1 +1,22 @@
-{{outlet}}
+<style>
+</style>
+
+
+<paper-shadow class="bigcard card day-paper paper-shadow-bottom-z-4" style="
+  left: 0; margin: 0 5% 0 5%; padding: 20px; min-height: 300px; text-align: center" z="3">
+
+  <core-label>
+    <core-image  src="/assets/icons/ic_bookmark_black_48px.svg" class="icons"></core-image>
+  </core-label> <br />
+  <core-field style="width: 68%; float: left; text-align: center">
+      <div style="width: 100%, height: 100%" id="modify-event-map">
+      </div>
+      {{map-dialog "modify-event-map" event.location}}
+      {{event.location}}
+  </core-field>
+
+  <core-field style="width: 31%; float: right; text-align: center">
+      {{modify-Event event}}
+  </core-field>
+
+</paper-shadow>

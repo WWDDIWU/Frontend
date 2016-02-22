@@ -29,20 +29,12 @@ const ClickEventsComponent = Ember.Component.extend({
     source==="openNew" ? writeEvent(event) : 1;
   },
   mouseEnter(){
-    var event = this.get("events");
+    var event = this.get("event");
     try {
       document.querySelector('#toast-'+event.get("id")).show()
-    }catch(e){console.log("Error whole collapsse");}
+    }catch(e){console.log("Error whole collapsse "+e);}
   }
 });
-
-function writeEvent(event){
-  console.log("Write in new event "+eve);
-  console.log("Write in new event "+event.get(title));
-  document.getQuery("#eveTitle").value = event.get("title");
-  document.getQuery("#eveDescr").value = event.get("description");
-  document.getQuery("#eve").selected = event.get("type");
-}
 
 ClickEventsComponent.reopenClass({
     positionalParams: ['source', 'event']
