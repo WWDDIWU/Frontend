@@ -100,7 +100,6 @@
         </core-field>
     <br />
 
-
   <core-label>
     <core-image  src="/assets/icons/ic_bookmark_black_48px.svg" class="icons"></core-image>
   </core-label>
@@ -112,8 +111,8 @@
     <core-field style="width: 70%; float: right;">{{input id="eveTitle" value=eveTitle placeholder="Title" style="height: 120px"}}</core-field>
     <core-field style="width: 70%; float: right;">{{input id="eveDescr" value=eveDescr placeholder="Description" style="height: 120px"}}</core-field>
     <core-field style="width: 70%; float: right;">
-       <paper-radio-group id="eveType" class="blue" selected="Event" layout="row">
-           <paper-radio-button name="Event" label="Event"></paper-radio-button><!--<core-image  src="/assets/icons/ic_assignment_turned_in_black_24px.svg" class="icons"></core-image>-->
+       <paper-radio-group id="eveType" class="blue" selected="0" layout="row">
+           <paper-radio-button name="0" label="Event"></paper-radio-button><!--<core-image  src="/assets/icons/ic_assignment_turned_in_black_24px.svg" class="icons"></core-image>-->
            <paper-radio-button name="1" label="Task"></paper-radio-button><!--<core-image  src="/assets/icons/ic_assignment_turned_in_black_24px.svg" class="icons"></core-image>-->
            <!--<paper-radio-button name="2" label="Open End"></paper-radio-button><!--<core-image  src="/assets/icons/ic_timelapse_black_24px.svg" class="icons"></core-image>-->
            <paper-radio-button name="3" label="On standby"></paper-radio-button><!--<core-image  src="/assets/icons/ic_hearing_black_24px.svg" class="icons"></core-image>-->
@@ -123,7 +122,6 @@
       {{input id="eveStart" value=eveStart placeholder="Start"}}
       {{input id="eveEnd" value=eveEnd placeholder="End"}}
       <!--     {{input id="eveDur" value=eveDur placeholder="Duration"}}-->
-
     </core-field>
   </div>
   <div style="width: 49%; float: right; display: inline; margin: 5px; ">
@@ -132,4 +130,5 @@
     </core-field>
   </div>
   {{outlet}}
+    <paper-fab {{action 'saveEvent' name selLati selLongi eveTitle eveDescr eveStart eveEnd eveDur}} icon="save" style="background-color:#79859B; position: fixed; bottom: 13%; right: 8%"></paper-fab>
 </paper-shadow>
