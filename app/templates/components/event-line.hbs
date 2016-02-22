@@ -47,9 +47,7 @@
   </paper-item>
 {{/click-events}}
   <core-collapse id="collapse-event-{{event.id}}">
-    {{#click-events "open" event }}
       <paper-item>
-        {{event.description}}
+        {{#link-to "event.modify"}}{{event.description}}{{/link-to}}
       </paper-item>
-    {{/click-events}}
   </core-collapse>

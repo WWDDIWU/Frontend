@@ -1,74 +1,4 @@
 <style>
-  .bigcard {
-    position: absolute;
-    top: 80px;
-    width: 90vw;
-    height: 80%;
-    overflow-y: scroll;
-  }
-  .bigcard, .bigcard core-field, .bigcard core-field input {
-    text-align: center;
-  }
-  .bigcard .icons {
-    width: 25%;
-  }
-  .bigcard core-field {
-      border: 1px solid #ddd;
-      margin: auto;
-      margin-bottom: 5px;
-      height: 40px;
-      width: 50%;
-  }
-  .paper-location {
-      height: 40px;
-    }
-  .bigcard paper-item {
-    margin: auto;
-    text-align: center;
-  }
-  .bigcard core-field input {
-      width: 100%;
-  }
-  .bigcard paper-item p {
-    width: 100%;
-  }
-
-  div.iconSearchGoogle {
-    display: inline-block;
-    width: 34px;
-    height: 34px;
-    background-repeat: no-repeat;
-    background-image: url("/assets/icons/ic_search_google.png");
-    background-size: 32px 32px;
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    margin-right: 14px;
-  }
-  .pac-container {margin-top: 15px;}
-
-  paper-button.hover:hover {
-    background: #eee;
-  }
-  paper-radio-group{
-    text-align: center;
-    margin: auto;
-  ##  overflow: scroll;
-  }
-  paper-radio-group.blue paper-radio-button::shadow #ink[checked] {
-    color: #79859B;
-  }
-
-  paper-radio-group.blue paper-radio-button::shadow #onRadio {
-    background-color: #79859B;
-  }
-  paper-radio-group.blue paper-radio-button[checked]::shadow #offRadio {
-    border-color: #79859B;
-  }
-
-  paper-radio-button {
-    display: inline;
-  }
 </style>
 
 
@@ -80,55 +10,19 @@
     <core-field>
       <core-icon-button icon="" style="opacity: 0; width: 70px;"></core-icon-button>
       {{input value=search placeholder="Search Locations" id="searchLocationsGoogle"}}
-      <core-tooltip label='Activate Google autocomplete' position="top">
-        <paper-button {{action "googleAutocomplete"}} class="hover" style="height: 40px; width: 40px; margin-right: 0px; top: -3px; padding-top: -1%">
-           <div class="iconSearchGoogle" onclick=""></div>
+      <core-tooltip label='Google Autocomplete is active' position="top">
+        <paper-button class="hover" style="height: 40px; width: 40px; margin-right: 0px; top: -3px; padding-top: -1%">
+           <div class="iconSearchGoogle" ></div>
         </paper-button>
       </core-tooltip>
     </core-field>
-      {{location-search search model.locations}}
-      <!--<paper-item onclick="">
-        <p><small><i>Add Location</i></small></p>
-      </paper-item>-->
-
-    <br />
-        <core-field>
-          {{input id="locationname" value=name placeholder="Name"}}
-        </core-field><core-field>
-          {{input id="lati" value=selLati placeholder="Latitude"}}
-          {{input id="longi" value=selLongi placeholder="Longitude"}}
-        </core-field>
-    <br />
+{{create-location model.locations}}
 
   <core-label>
     <core-image  src="/assets/icons/ic_bookmark_black_48px.svg" class="icons"></core-image>
   </core-label>
-  <core-field>
-    {{input value=eventSearch placeholder="Search Events"}}
-  </core-field>
 
-  <div style="width: 49%; float: left; display: inline; margin: 5px;">
-    <core-field style="width: 70%; float: right;">{{input id="eveTitle" value=eveTitle placeholder="Title" style="height: 120px"}}</core-field>
-    <core-field style="width: 70%; float: right;">{{input id="eveDescr" value=eveDescr placeholder="Description" style="height: 120px"}}</core-field>
-    <core-field style="width: 70%; float: right;">
-       <paper-radio-group id="eveType" class="blue" selected="0" layout="row">
-           <paper-radio-button name="0" label="Event"></paper-radio-button><!--<core-image  src="/assets/icons/ic_assignment_turned_in_black_24px.svg" class="icons"></core-image>-->
-           <paper-radio-button name="1" label="Task"></paper-radio-button><!--<core-image  src="/assets/icons/ic_assignment_turned_in_black_24px.svg" class="icons"></core-image>-->
-           <!--<paper-radio-button name="2" label="Open End"></paper-radio-button><!--<core-image  src="/assets/icons/ic_timelapse_black_24px.svg" class="icons"></core-image>-->
-           <paper-radio-button name="3" label="On standby"></paper-radio-button><!--<core-image  src="/assets/icons/ic_hearing_black_24px.svg" class="icons"></core-image>-->
-       </paper-radio-group>
-    </core-field>
-    <core-field style="width: 70%; float: right;">
-      {{input id="eveStart" value=eveStart placeholder="Start"}}
-      {{input id="eveEnd" value=eveEnd placeholder="End"}}
-      <!--     {{input id="eveDur" value=eveDur placeholder="Duration"}}-->
-    </core-field>
-  </div>
-  <div style="width: 49%; float: right; display: inline; margin: 5px; ">
-    <core-field style="width: 70%; float: left; height: 176px; overflow-y: scroll;">
-        <div style="position:relative; width: 100%"><div style="position: absolute; top:0; width: 100%; margin-top: -80px">{{event-search eventSearch model.events name selLati selLongi}}</div></div>
-    </core-field>
-  </div>
+{{create-Event model.events name selLati selLongi}}
   {{outlet}}
     <paper-fab {{action 'saveEvent' name selLati selLongi eveTitle eveDescr eveStart eveEnd eveDur}} icon="save" style="background-color:#79859B; position: fixed; bottom: 13%; right: 8%"></paper-fab>
 </paper-shadow>

@@ -1,3 +1,4 @@
+/*global Google */
 {
   "predef": [
     "document",

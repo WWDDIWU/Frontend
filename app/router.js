@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('event', {path: '/:user_id/event'}, function() {
     this.route('new');
   });
+  this.route('event.modify');
 });
 
 export default Router;
