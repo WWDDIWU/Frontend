@@ -14,15 +14,17 @@
      </paper-radio-group>
   </core-field>
   <core-field style="width: 70%; float: right;">
-    {{date-picker date=eveStart placeholder="Start" yearRange="0,6" utc=true valueFormat='MM/DD/YYYY'}}
+    {{date-picker date=eveStart placeholder="Start" yearRange="0,6" utc=true valueFormat='YYYY-MM-DD'}}
     {{#if (ifIs selectedType 1)}} {{input id="eveDur" value=eveDur placeholder="Duration"}}
-    {{else}} {{date-picker date=eveEnd placeholder="End" yearRange="0,6" utc=true valueFormat='MM/DD/YYYY'}}
+    {{else}} {{date-picker date=eveEnd placeholder="End" yearRange="0,6" utc=true valueFormat='YYYY-MM-DD'}}
     {{/if}}
+    {{input id="eveStart" type="hidden" value=eveStart}}
+    {{input id="eveEnd" type="hidden" value=eveEnd}}
   </core-field>
   <core-field style="width: 70%; float: right; text-align: center">
-    From {{time-picker}} to
+    From {{time-picker id="fromTime"}} to
     {{#if (ifIs selectedType 1)}}
-    {{else}} {{time-picker}}
+    {{else}} {{time-picker id="toTime"}}
     {{/if}}
   </core-field>
 </div>

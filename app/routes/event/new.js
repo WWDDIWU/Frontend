@@ -21,20 +21,19 @@ export default Ember.Route.extend({
     },
     actions: {
         saveEvent(name, selLati, selLongi, eveTitle, eveDescr, eveStart, eveEnd, eveDur) {
-            console.log(name);
           let that = this;
           let location = this.store.createRecord('location', {
-              name: name,
-              latitude: selLati,
-              longitude: selLongi
+              name: Ember.$('#locationname').val(),
+              latitude: Ember.$('#lati').val(),
+              longitude: Ember.$('#longi').val()
           });
           location.save().then(function(location) {
               let event = that.store.createRecord('event', {
                   type: parseInt(Ember.$('#eveType paper-radio-button[aria-checked=true]').attr('name')),
-                  title: eveTitle,
-                  description: eveDescr,
-                  start: new Date(eveStart),
-                  end: new Date(eveEnd),
+                  title: Ember.$('#eveTitle').val(),
+                  description: Ember.$('#eveDescr').val(),
+                  start: new Date(Ember.$('#eveStart').val() + 'T' + Ember.$('#fromTime .timepicker-display .timepicker-hour .timepicker-h').html() + ':' + Ember.$('#fromTime .timepicker-display .timepicker-minute .timepicker-m').html()),
+                  end: new Date(Ember.$('#eveEnd').val() + 'T' + Ember.$('#toTime .timepicker-display .timepicker-hour .timepicker-h').html() + ':' + Ember.$('#toTime .timepicker-display .timepicker-minute .timepicker-m').html()),
                   location: location
               });
               event.save();
