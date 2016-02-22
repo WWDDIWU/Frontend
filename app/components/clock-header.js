@@ -8,13 +8,13 @@ export default Ember.Component.extend({
       return this.get('clock.time');
     });
     var hours= Ember.computed('clock.date', function() {
-       return this.get('clock.date').getHours();
+       return ("0" + this.get('clock.date').getHours()).substr(-2);
     });
     var mins= Ember.computed('clock.date', function() {
-       return this.get('clock.date').getMinutes();
+       return ("0" + this.get('clock.date').getMinutes()).substr(-2);
     });
     var secs= Ember.computed('clock.date', function() {
-       return this.get('clock.date').getSeconds();
+       return ("0" + this.get('clock.date').getSeconds()).substr(-2);
     });
     this.set("hours",hours);
     this.set("mins",mins);
