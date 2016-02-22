@@ -15,6 +15,7 @@
     "moment": "^2.11.2"
   },
   "resolutions": {
-    "webcomponentsjs": "0.7.21"
+    "webcomponentsjs": "0.7.21",
+    "moment": "^2.11.2"
   }
 }
