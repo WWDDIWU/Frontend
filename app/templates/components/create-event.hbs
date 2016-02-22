@@ -16,7 +16,13 @@
   <core-field style="width: 70%; float: right;">
     {{date-picker date=eveStart placeholder="Start" yearRange="0,6" utc=true valueFormat='MM/DD/YYYY'}}
     {{#if (ifIs selectedType 1)}} {{input id="eveDur" value=eveDur placeholder="Duration"}}
-    {{else}} {{input id="eveEnd" value=eveEnd placeholder="End"}}
+    {{else}} {{date-picker date=eveEnd placeholder="End" yearRange="0,6" utc=true valueFormat='MM/DD/YYYY'}}
+    {{/if}}
+  </core-field>
+  <core-field style="width: 70%; float: right;">
+    {{time-picker}}
+    {{#if (ifIs selectedType 1)}}
+    {{else}} {{time-picker}}
     {{/if}}
   </core-field>
 </div>

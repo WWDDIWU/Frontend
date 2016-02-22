@@ -46,6 +46,7 @@
     "loader.js": "^4.0.0"
   },
   "dependencies": {
-    "ember-cli-datepicker": "^2.0.1"
+    "ember-cli-datepicker": "^2.0.1",
+    "ember-cli-timepicker-lite": "^0.1.3"
   }
 }
